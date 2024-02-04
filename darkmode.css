@@ -1,0 +1,59 @@
+/* styles-common.css */
+:root {
+    --background-color-light: #ffffff;
+    --text-color-light: #333333;
+    --background-color-dark: #1a1a1a;
+    --text-color-dark: #ffffff;
+  }
+
+  
+  /* styles-dark.css */
+  body {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    /* other dark mode styles */
+  }
+  .container-fluid {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+    .container-fluid h4 {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .container-fluid h2 {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .container-fluiid {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .container-fluiid h2 {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .container-fluiid h4{
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .container-fluid text-center {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+.panel-body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+.panel-footer h3{
+    background-color: #1a1a1a;
+    color: #ffffff; 
+}
+.panel-footer h4{
+    background-color: #1a1a1a;
+    color: #ffffff; 
+}
+.thumbnail{
+    background-color: #1a1a1a;
+    color: #ffffff;  
+}
