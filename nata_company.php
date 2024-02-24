@@ -8,6 +8,7 @@
   <title>NataCompany</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="la gestion et la vente des services ">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
@@ -16,9 +17,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="lightmode.css" id="light-mode-stylesheet">
-<link rel="stylesheet" href="darkmode.css" id="dark-mode-stylesheet" disabled>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1jCExMZ8LYiYWgGy9+kiTxmbYpISYdm0yNnP+qMiCNM2EcjLaXEG91uW+WrCkPBqdU2eIYxhxF5OgzUul9BvWqQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="darkmode.css" id="dark-mode-stylesheet" disabled>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-DzpL+wo6cqOZ9J8/e6oDXwxuDwYpsY+G1yepz0JH/BtxvVzP+c0pL+V8WnEpyHvV7JlGnYpV8nhLkIzvVZhQqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-DzpL+wo6cqOZ9J8/e6oDXwxuDwYpsY+G1yepz0JH/BtxvVzP+c0pL+V8WnEpyHvV7JlGnYpV8nhLkIzvVZhQqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
   body {
@@ -203,6 +205,35 @@
   }
  
   }
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide by default */
+}
+
+.cookie-banner p {
+    display: inline;
+    margin: 0;
+}
+
+#accept-cookies {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -215,17 +246,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <img src="IMG_5127-removebg-preview 2.png" onclick="scrollToTop()"   style="display: block;
+      <img src="IMG_5127-removebg-preview 2.png" alt="NataCompany mini Logo" onclick="scrollToTop()"   style="display: block;
       height: 80px;  
       float: left;">
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">À PROPOS</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="#pricing">Tarification</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a title="ce boutton vous dirige vers le cote a propos " href="#about">À PROPOS</a></li>
+        <li><a title="ce boutton vous dirige vers le cote services" href="#services">SERVICES</a></li>
+        <li><a title="ce boutton vous dirige vers le cote portfolio" href="#portfolio">PORTFOLIO</a></li>
+        <li><a title="ce boutton vous dirige vers le cote tarification" href="#pricing">Tarification</a></li>
+        <li><a title="ce boutton vous dirige vers le cote contact" href="#contact">CONTACT</a></li>
       </ul>
     </div>
   </div>
@@ -234,8 +265,8 @@
       <i class="far fa-user"></i> Ton compte <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
-      <li align="center" class="dropdown-item" ><a href="login2.php" style="background-color: #000000;"><b>se connecter</b></a></li>
-      <li align="center" class="dropdown-item"><a href="admin_page.php" style="background-color: #000000;"><i class="fa-solid fa-user-tie"></i> <b>Admin</b></a></li>
+      <li align="center" class="dropdown-item" ><a title="ce boutton vous dirige vers la page login " href="login2.php" style="background-color: #000000;"><b>se connecter</b></a></li>
+      <li align="center" class="dropdown-item"><a title="ce boutton vous dirige vers la page admin" href="admin_page.php" style="background-color: #000000;"><i class="fa-solid fa-user-tie"></i> <b>Admin</b></a></li>
     </ul>
   </div>
   <div class="switch" align="left">
@@ -246,27 +277,30 @@
 
 <div class="jumbotron text-center">
   <h1 style="text-align: center;">
-    <img src="IMG_5127-removebg-preview 2.png" alt="blacklogo" style="display: block; height: 300px;   margin: 0 auto;">
+    <img src="IMG_5127-removebg-preview 2.png" alt="NataCompany Logo" style="display: block; height: 300px;   margin: 0 auto;">
   </h1>
    
   <p><h3> Nous ne sommes pas les seuls, mais nous sommes les meilleurs.<small>Hossam Saadi.</small></h3>  </p> 
   <form>
     <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Address Email " required>
+      <input id="emails" type="email" class="form-control" size="50" placeholder="Address Email " required>
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger"> <a href="" c"> S'abonner</a></button>
+        <button type="button" class="btn btn-danger"> <a title="s'abboner a notre site pour avoir nos actu" href="#"> S'abonner</a></button>
       </div>
     </div>
   </form>
   
 </div>
-
+<div id="cookie-banner" class="cookie-banner">
+        <p>This website uses cookies to ensure you get the best experience on our website. <a title="ce boutton vous dirige vers le cote  regle du site " href="privacy-policy.html">Learn more</a></p>
+        <button id="accept-cookies" onclick="acceptCookies()">Got it!</button>
+    </div>
 <!-- Container (À propos Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8" id="about-heading">
       <h2>À propos de la page de l'entreprise</h2><br>
-      <h4 id="about-text"> NataCompany est une entreprise qui a été créée en 12/12/2012 par son fondateur NataBleda, également connu sous le nom d'ElMehdi ElAlaoui. Avec 11 ans d'expérience dans son domaine, NataCompany est devenue une référence dans l'industrie grâce à son engagement envers l'excellence et la satisfaction du client. L'entreprise est équipée d'un personnel hautement qualifié qui travaille dur pour répondre aux besoins de ses clients avec des solutions innovantes et personnalisées. Avec son expertise, NataCompany a aidé de nombreuses entreprises à atteindre leurs objectifs et à améliorer leur productivité.</h4><br>
+      <h4 id="about-text"> NataCompany est une entreprise qui a été créée en 12/12/2012 par son fondateur NataBleda, également connu sous le nom d'ElMehdi ElAlaoui. Avec 12 ans d'expérience dans son domaine, NataCompany est devenue une référence dans l'industrie grâce à son engagement envers l'excellence et la satisfaction du client. L'entreprise est équipée d'un personnel hautement qualifié qui travaille dur pour répondre aux besoins de ses clients avec des solutions innovantes et personnalisées. Avec son expertise, NataCompany a aidé de nombreuses entreprises à atteindre leurs objectifs et à améliorer leur productivité.</h4><br>
       <p id="about-text">NataCompany est leader dans son domaine et offre des services de marketing des réseaux sociaux à ses clients. Grâce à son expertise, l'entreprise aide les entreprises à améliorer leur présence en ligne et à atteindre leurs objectifs marketing. Avec une équipe hautement qualifiée de spécialistes des réseaux sociaux, NataCompany utilise les dernières techniques et stratégies pour offrir des solutions personnalisées à ses clients. Les services de marketing des réseaux sociaux de l'entreprise incluent la création de contenu, la gestion de campagnes publicitaires et l'analyse des données pour améliorer les résultats. Les clients de NataCompany peuvent compter sur l'entreprise pour les aider à atteindre leur public cible et à améliorer leur image de marque sur les réseaux sociaux.</p>
       <br><button class="btn btn-default btn-lg">Entrer en contact</button>
     </div>
@@ -384,11 +418,11 @@
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <a class="left carousel-control" title=" cote avis client" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <a class="right carousel-control" title=" cote avis des client" href="#myCarousel" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -471,20 +505,20 @@
       <p><span class="glyphicon glyphicon-map-marker"></span> Morocco, Casablanca</p>
       <p><span class="glyphicon glyphicon-phone"></span> +212 772020923</p>
       <p><span class="glyphicon glyphicon-envelope"></span> mehdialaouiking@gmail.com</p>
-      <p><a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> NataCompany</a></p>
-      <p><a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> NataCompany</a></p>
+      <p><a title="ce boutton vous dirige vers la page facebook "href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> NataCompany</a></p>
+      <p><a title="ce boutton vous dirige vers la page  instagrame "href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> NataCompany</a></p>
     </div>
 
     <div class="col-sm-7">
       <form id="contactForm" action="mail.php" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" name="name" placeholder="Your Name" tabindex="1" autofocus required>
+          <input type="text" class="form-control" name="name" placeholder="Your Name" tabindex="1" autocomplete="username" autofocus required>
         </div>
         <div class="form-group">
-          <input type="email" class="form-control" name="email" placeholder="Your Email Address" tabindex="2" required>
+          <input type="email" class="form-control" name="email" placeholder="Your Email Address" tabindex="2" autocomplete="email" required>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" name="subject" placeholder="Subject" tabindex="4" required>
+          <input type="text" class="form-control" name="subject" placeholder="Subject" tabindex="4" autocomplete="subject" required>
         </div>
         <div class="form-group">
           <textarea class="form-control" name="message" placeholder="Type your Message Details Here..." tabindex="5" rows="4" required></textarea>
@@ -502,7 +536,7 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
+  <a title="ce boutton vous dirige vers le haut de la page "href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
   <p>NataBleda</p>
@@ -574,8 +608,43 @@ const toggleModeButton = document.getElementById('toggle-mode-button');
       lightmoonswitch.setAttribute('disabled', 'true');
     }
   });
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!getCookie('cookie_accepted')) {
+        // Show the cookie consent banner if the user hasn't accepted cookies
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+  });
 
-  
+
+function acceptCookies() {
+    // Set a cookie to remember that the user has accepted cookies
+    setCookie('cookie_accepted', 'true', 365);
+
+    // Hide the cookie consent banner
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Helper functions for handling cookies
+function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/';
+}
+
+function getCookie(name) {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
 
 
 </script>

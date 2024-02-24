@@ -20,11 +20,12 @@ function check_login($conn)
 {
     if (isset($_SESSION['id'])) {
         $id = $_SESSION['id'];
-        $query = "SELECT * FROM users WHERE id = '$id' LIMIT 1";
+        $query = "SELECT `name` FROM `users` where id = '$id' LIMIT 1";
 
         $result = mysqli_query($conn, $query);
         if ($result && mysqli_num_rows($result) > 0) {
             $user_data = mysqli_fetch_assoc($result);
+            $_SESSION['name'] = $user_data['name'];
             return $user_data;
         }
     }
@@ -39,6 +40,19 @@ if ($conn->connect_error) {
 }
 
 $user_data = check_login($conn);
+
+
+// Set a cookie without specifying a domain (or with an empty domain)
+setcookie("user", "John Doe", time() + 3600, '/');
+// Display all cookies
+print_r($_COOKIE);
+
+// Display a specific cookie
+if (isset($_COOKIE['user'])) {
+    echo 'Value of user cookie: ' . $_COOKIE['user'];
+} else {
+    echo 'User cookie not set.';
+}
 
 ?>
 
@@ -57,6 +71,8 @@ $user_data = check_login($conn);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-DzpL+wo6cqOZ9J8/e6oDXwxuDwYpsY+G1yepz0JH/BtxvVzP+c0pL+V8WnEpyHvV7JlGnYpV8nhLkIzvVZhQqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
 
   <style>
   body {
@@ -241,6 +257,39 @@ $user_data = check_login($conn);
   }
  
   }
+ .font{
+    font-family: Courier, monospace	;
+    font-weight: 500;
+  }
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide by default */
+}
+
+.cookie-banner p {
+    display: inline;
+    margin: 0;
+}
+
+#accept-cookies {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -272,7 +321,7 @@ $user_data = check_login($conn);
       <i class="far fa-user"></i> Ton compte <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
-    <li align="center" class="dropdown-item"><a href="#" style="background-color: #000000;"><b><?php echo $_SESSION['id']; ?></b></a> </li>      
+    <li align="center" class="dropdown-item"><a href="#" style="background-color: #000000;"><b><?php echo $_SESSION['name']; ?></b></a> </li>      
       <li align="center" class="dropdown-item"><a href="admin_page.php" style="background-color: #000000;"><i class="fa-solid fa-user-tie"></i> <b>Admin</b></a></li>
       <li align="center" class="dropdown-item" ><a href="logout.php" style="background-color: #000000;"><b>Se déconnecter</b></a></li>
 
@@ -286,18 +335,21 @@ $user_data = check_login($conn);
   <h1 style="text-align: center;">
     <img src="IMG_5127-removebg-preview 2.png" alt="blacklogo" style="display: block; height: 300px;   margin: 0 auto;">
   </h1>
-   
-  <p><h3> Nous ne sommes pas les seuls, mais nous sommes les meilleurs.<small>Hossam Saadi.</small></h3>  </p> 
+   <h3><b><?php echo $_SESSION['name']; ?></b></h3>
+  <p><h3 class='font'> Nous ne sommes pas les seuls, mais nous sommes les meilleurs.<small>Hossam Saadi.</small></h3>  </p> 
   <form>
     <div class="input-group">
       <input type="email" class="form-control" size="50" placeholder="Address Email " required>
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger"> <a href="" c"> S'abonner</a></button>
+        <button type="button" class="btn btn-danger"> <a href="#"> S'abonner</a></button>
       </div>
     </div>
   </form>
 </div>
-
+<div id="cookie-banner" class="cookie-banner">
+        <p>This website uses cookies to ensure you get the best experience on our website. <a href="privacy-policy.html">Learn more</a></p>
+        <button id="accept-cookies" onclick="acceptCookies()">Got it!</button>
+    </div>
 <!-- Container (À propos Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
@@ -364,6 +416,7 @@ $user_data = check_login($conn);
 
     </div>
     <div class="col-sm-4">
+    <i class="fa-solid fa-square-poll-vertical"></i>
         <h3><strong><u>Analyse de données</u></strong></h3>
     <p>Analyse des données des réseaux sociaux pour mesurer les performances des campagnes et des pages de l'entreprise, identifier les opportunités d'amélioration et ajuster la stratégie en conséquence.</p>
     </div>
@@ -400,7 +453,7 @@ $user_data = check_login($conn);
   
   <h2>Ce que nos clients disent </h2>
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <!-- Indicators -->
+    <!-- Indicators --> 
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -581,7 +634,43 @@ function scrollToTop() {
   window.scrollTo(0, 0);
 }
 // Initialize Typed.js
- 
+document.addEventListener('DOMContentLoaded', function () {
+    if (!getCookie('cookie_accepted')) {
+        // Show the cookie consent banner if the user hasn't accepted cookies
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+});
+
+function acceptCookies() {
+    // Set a cookie to remember that the user has accepted cookies
+    setCookie('cookie_accepted', 'true', 365);
+
+    // Hide the cookie consent banner
+    document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Helper functions for handling cookies
+function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/';
+}
+
+function getCookie(name) {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
 
 
 

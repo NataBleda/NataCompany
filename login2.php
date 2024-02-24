@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SYb1iFngcISf8A6OW1Pj3C2z5L2/hRTt8+p0M" crossorigin="anonymous">
-
+  <link rel="shortcut icon" href="logo mehdi.ico">
   <title>Login</title>
 </head>
 <body>

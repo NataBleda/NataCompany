@@ -6,6 +6,7 @@
 <head>
 <title>Only Admin</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="shortcut icon" href="logo mehdi.ico">
 </head>
 <body>
     
